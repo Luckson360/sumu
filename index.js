@@ -409,7 +409,7 @@ application.get("/artists", (req,res) =>{
 	albumtrackModel.find({}, (err,artist) =>{
 		if(!err){
 			console.log(artist)
-			res.render("AllArtists", {artists: artist})
+			res.render("allArtists", {artists: artist})
 		}
 		else{
 			console.log(err)
