@@ -1,0 +1,39 @@
+<a href='/music/add'><p>Upload Single</p></a>
+<a href='/rall'><p>Upload Album</p></a>
+<a href='/albums'><p>Albums</p></a>
+<a href='/artists'><p>Artists</p></a>
+<p>Search</p>
+<form action="/search" method="get">
+<input type="search" name="search" placeholder="Artists,CDs,Albums">
+<button type="submit">Search</button>
+</form>
+<% if(album){ %>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+        <br/>
+           <img src="/image/<%= album.coverArt %>" width="200" height="200">
+           <div class="caption">
+              <h4><%= album.albumTitle %></h4>
+               <h4><%= album.singleTitle %></h4>
+           </div>
+           <p>
+           <%= album.albumArtist %>
+           </p>
+        </div>
+    </div>
+    <p><%= album.downloads %>Downloads</p>
+    <p><%= album.streams %>Streams</p>
+    <br/>
+    <button>Download</button>
+    <br/>
+    <h4><%= album.albumSingles.singleTitle %></h4>
+    <h4>Tracks</h4>
+    <% singles.forEach(function(single){ %>
+    <p><%= single.singleNumber %>.<%= single.singleTitle %></p>
+    <audio controls>
+      <source src="/singlepage/<%= single.audio %>">
+    </audio>
+<% }) %>
+<h4>More from artist</h4>
+<% } %>
+

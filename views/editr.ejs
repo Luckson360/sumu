@@ -1,0 +1,11 @@
+<p>the one present</p>
+<% if(single){ %>
+<img src="/image/<%= single.coverArt %>" width="200" height="200">
+<p><%= single.singleTitle %></p>
+<p><%= single.singleTitle %></p>
+<form action="/edit/<%= single.id %>" method="post">
+<p>Enter the new song title</p>
+<input type="text" name="singleTitle">
+<input type="submit" name="edit">
+</form>
+<% } %>

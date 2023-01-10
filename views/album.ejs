@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMU, player {.~KJySZIP:V</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">  
+    <link rel="stylesheet" href="fontawesome.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css' crossorigin="anonymous">
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-dark sticky-top">
+<div class="container">
+  <a class="navbar-brand" href="/">SUMU</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Music <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/artists">Artists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/charts">Charts</a>
+      </li>
+    </ul>
+        <form class="form-inline my-2 my-lg-0" action="/text" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="that">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+</nav>
+<br>
+   <div class="player">
+       <div class="wrapper">
+           <div class="details">
+               <div class="now-playing">PLAYING x OF y</div>
+               <div class="track-art"></div>
+               <div class="track-name">Track Name</div>
+               <div class="track-artist">Track Artist</div>
+           </div>
+
+           <div class="slider_container">
+               <div class="current-time">00:00</div>
+                <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                <div class="total-duration">00:00</div>
+           </div>
+
+           <div class="slider_container">
+               <i class="fa fa-volume-down"></i>
+                <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+                <i class="fa fa-volume-up"></i>
+           </div>
+             <ul id="playlist" class="hidden">
+             <% albumtracks.forEach(function(albumtrack) { %> 
+                <li class="ch" audio ="/audio/<%= albumtrack.audio %>" singleTitle="<%= albumtrack.singleTitle %>" cover="/image/<%= albumtrack.coverArt %>" artist="<%= albumtrack.artists %>">
+                </li>
+             <% }) %>
+            </ul> 
+           <div class="buttons">
+               <div class="random-track" onclick="randomTrack()">
+                    
+               </div>
+               <div class="prev-track" onclick="prevTrack()">
+                    <span class="badge badge-primary badge-pill">Prev</span>
+                </div>
+                <div class="playpause-track" onclick="playpauseTrack()">
+                    <span class="badge badge-primary badge-pill">Play/Pause</span>
+                </div>
+                <div class="next-track" onclick="nextTrack()">
+                    <span class="badge badge-primary badge-pill">Next</span>
+                </div>
+                <!-- will have  download btn below ,no repeat btn -->
+                <div class="repeat-track" onclick="repeatTrack()">
+                    
+                </div>
+           </div>
+
+            <div id="wave">
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+            </div>  
+       </div>
+   </div>
+   <hr>
+   <div class="container">
+<!-- herr -->
+<ul class="list-group overflow-auto">
+    <% albumtracks.forEach(function(albumtrack){ %> 
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <%= albumtrack.singleTitle %>
+    <span class="badge badge-primary badge-pill"><%= albumtrack.releaseDate %></span>
+    <span class="badge badge-primary badge-pill"><%= albumtrack.downloads %> Downloads</span>
+      <span class="badge badge-primary badge-pill bg-warning"><a href="/downloads/<%= albumtrack.audio%>" download>Download</a></span>
+  </li>
+    <%})%>
+</ul>
+   </div>
+   <br>
+   <script src="/js/main.js" type="text/javascript" defer></script>
+    <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+</html>

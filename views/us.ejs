@@ -1,0 +1,43 @@
+<a href='/music/add'><p>Upload Single</p></a>
+<a href='/rall'><p>Upload Album</p></a>
+<a href='/albums'><p>Albums</p></a>
+<a href='/artists'><p>Artists</p></a>
+<p>Search</p>
+<form action="/search" method="get">
+<input type="search" name="search" placeholder="Artists,CDs,Albums">
+<button type="submit">Search</button>
+</form>
+<h4>Top Albums</h4>
+<% albums.forEach(function(album){ %>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+        <br/>
+           <a href="album/<%= album.albumname %>"><img src="image/<%= album.coverArt %>" width="200" height="200"></a>
+           <div class="caption">
+               <h4><%= album.albumTitle %></h4><p><%= album.albumTracklist %>Songs</p>
+           </div>
+           <p>
+           <%= album.albumArtist %>
+           </p>
+            <p>
+           <%= album.albumSingles.singleTitle %>
+           </p>
+           <button>
+           <a href="/edit/album/<%= album.government%>">
+           Edit Album
+           </a>
+           </button>
+           <button>
+           <a href="/album/feature/<%= album.government%>">
+           Feature Album
+           </a>
+           </button>
+           <button>
+           <a href="/album/remove/feature/<%= album.government%>">
+           UnFeature Album
+           </a>
+           </button>
+        </div>
+    </div>
+
+<% }); %>

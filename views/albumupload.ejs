@@ -1,0 +1,92 @@
+
+<form action="/upload/album" method="post" enctype="multipart/form-data">
+	<p> For Artist already registered </p>
+	<p> Artist Name </p>
+	<select name="artistName">
+	<% artists.forEach(function(artist){ %>
+		<option value="<%= artist.artistName%>"><p><%= artist.artistName%></p></option>
+	<% }) %>
+	</select>
+	<p> Album Title </p>
+	<input type="text" name="albumTitle" value="">
+	<p> Genre </p>
+	<select name="genreName">
+	<% genres.forEach(function(genre){ %>
+		<option value="<%= genre.genreName%>"><p><%= genre.genreName%></p></option>
+	<% }) %>
+	</select>
+	<p> Featured Artists </p>
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<p>governement</p>
+	<input type="text" name="government" value="">
+	<p> Number of Songs </p>
+	<input type="text" name="albumTracklist" value="">
+	<br/>
+	<br/>
+	<br/>
+	<label for="fileone">Release Date</label>
+	<input type="date" name="releaseDate" value="">
+	<br/>
+	<label for="fileone">Upload CoverArt</label>
+  <br/>
+  <input type="file" name="cover" id="fileone">
+	<input type="submit" name="submit" value="upload cover">
+</form>
+<br>
+<form action="/upload/album" method="post" enctype="multipart/form-data">
+	<p> For New registered </p>
+	<p> Artist Name </p>
+	<input type="text" name="artistName" value="">
+	<p> Album Title </p>
+	<input type="text" name="albumTitle" value="">
+	<p> Genre </p>
+	<select name="genreName">
+	<% genres.forEach(function(genre){ %>
+		<option value="<%= genre.genreName%>"><p><%= genre.genreName%></p></option>
+	<% }) %>
+	</select>
+	<p> Featured Artists </p>
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<p>governement</p>
+	<input type="text" name="government" value="">
+	<p> Number of Songs </p>
+	<input type="text" name="albumTracklist" value="">
+	<br/>
+	<br/>
+	<br/>
+	<label for="fileone">Release Date</label>
+	<input type="date" name="releaseDate" value="">
+	<br/>
+	<label for="fileone">Upload CoverArt</label>
+  <br/>
+  <input type="file" name="cover" id="fileone">
+	<input type="submit" name="submit" value="upload cover">
+</form>
+<form action="/upload/album/single" method="post" enctype="multipart/form-data">
+	<p> The Single </p>
+	<p> The government </p>
+	<input type="text" name="government" value="">
+	<p> Artist Name(s) </p>
+	<input type="text" name="artistName" value="">
+	<p> Single Title </p>
+	<input type="text" name="singleTitle" value="">
+	<p> Single Number </p>
+	<input type="text" name="singleNumber" value="">
+	<br/>
+	<label for="fileone">Upload Audio</label>
+  <br/>
+  <input type="file" name="audio" id="fileone">
+	<input type="submit" name="submit" value="upload audio">
+</form>

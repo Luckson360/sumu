@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script src="/js/jquery.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="slider.css">
+    <title>SUMU</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light-blue navbar-fixed-top">
+<div class="container">
+  <a class="navbar-brand" href="/">SUMU</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Music <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/artists">Artists</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/charts">Charts</a>
+      </li>
+    </ul>
+        <form class="form-inline my-2 my-lg-0" action="/text" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="that">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+</nav>
+  <div class="container">
+    <div class="btn-singles-albums">
+      <a class="btn btn-primary btn-sm" role="button" style="background-color: #f15fa3; font-weight: 700;" href="/charts">CDs</a>
+      <!--<a class="btn btn-primary btn-sm" role="button" style="background-color: #f15fa3; font-weight: 700;" href="/albumschart">Albums</a>-->
+      <div class="btn-group">
+        <button type="button" class="btn  dropdown-toggle btn-sm" data-toggle="dropdown" data-target="#genre" aria-haspopup="true" aria-expanded="false" style="background-color: #f15fa3; font-weight: 700;">
+          Genre Filter
+        </button>
+        <div class="dropdown-menu" id="genre">
+          <% singles.forEach(function(single){ %>
+          <a class="dropdown-item" href="charts/<%= single.genre %>"><%= single.genre %></a>
+          <% }) %>
+          <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </div>
+    </div>
+    <p style="font-weight: 700; letter-spacing: 1.5px">SUMU Top 200</p>
+    <table class="table table-striped table-responsive-sm">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Song Title</th>
+          <th scope="col">Artist(s)</th>
+          <th scope="col">Genre</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% singles.forEach(function(single){ %>
+        <tr>
+          <td scope="row" class="pos">1</td>
+          <td scope="row"><%= single.singleTitle %></td>
+          <td scope="row"><%= single.artists %></td>
+          <td scope="row"><%= single.genre %></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+    <script type="text/javascript">
+      let els = document.querySelectorAll(".pos")
+      let i = 1
+
+      els.forEach(function(el) {
+        // body
+        el.innerHTML = i++
+      })
+      /*for (var i = 0; i <= els.length; i++) {
+        els[i].innerHTML = i++
+      }*/
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

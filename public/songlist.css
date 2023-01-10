@@ -1,0 +1,73 @@
+/*
+	The stlesheet for the list of the songs onthe Music page
+*/
+
+    .view-item{
+      border: 1px solid #e2ef12;
+      margin: 10px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      background: white;
+    }
+
+    .one .view-item:last-child{
+      margin-bottom: 0;
+    }
+
+    img{
+      width: 75px;
+    }
+
+    .title{
+      font-weight: 600;
+      padding-bottom: 5;
+      margin-bottom: 0px;
+    }
+
+    .view-item .vi-left{
+      margin-right: 25px;
+    }
+
+    .view-item .content{
+      margin: 5px 0;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 200;
+    }
+
+    .view-item .btn{
+      width: 125px;
+      background-color: #4abd3e;
+      color: #fff;
+      border-radius: 3px;
+      padding: 8px;
+      text-align: center;
+      font-weight: 200;
+      cursor: pointer;
+    }
+
+@media (max-width: 768px){
+    .view-item{
+      flex-direction: column;
+    }
+
+    img{
+      width: 8rem;
+      align-content: center;
+    }
+
+    .title{
+      font-weight: 600;
+      padding-bottom: 0;
+      margin-bottom: 0px;
+      text-align: center;
+      margin-left: 0px;
+    }
+    .view-item .vi-left{
+      margin-right: 0px;
+    }
+    .content{
+      text-align: center;
+    }
+}

@@ -1,0 +1,65 @@
+<%- include("header") -%>
+<a href='/music/add'><p>Upload Single</p></a>
+<a href='/rall'><p>Upload Album</p></a>
+<a href='/albums'><p>Albums</p></a>
+<a href='/artists'><p>Artists</p></a>
+<h4>Featured CDs</h4>
+<% featuredSingles.forEach(function(featuredSingle){ %>
+<a href="song/<%= featuredSingle.singlename %>"><img src="image/<%= featuredSingle.coverArt %>" width="200" height="200"></a>
+<div class="caption">
+   <h4><%= featuredSingle.singleTitle %></h4>
+   <a href="/remove/feature/<%= featuredSingle.government %>"><button>Remove Features</button></a>
+</div>
+<p>
+<%= featuredSingle.artistName %>
+</p>
+<% }) %>
+<h4>Featured Albums</h4>
+<h4>Top Singles</h4>
+<p>Search</p>
+<form action="/search" method="get">
+<input type="search" name="search" placeholder="Artists,CDs,Albums">
+<button type="submit">Search</button>
+</form>
+<% singles.forEach(function(single){ %>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+        <br/>
+           <a href="song/<%= single.singlename %>"><img src="image/<%= single.coverArt %>" width="200" height="200"></a>
+           <div class="caption">
+               <h4><%= single.singleTitle %></h4>
+           </div>
+           <p>
+           <%= single.artistName %>
+           </p>
+           <button>
+           <a href="release/<%= single.government%>">
+           Edit Release
+           </a>
+           </button>
+           <button>
+           <a href="/feature/<%= single.government%>">
+           Feature Music
+           </a>
+           </button>
+           <form method="post" action="cover/<%= single.coverArt %>?_method=DELETE">
+           <button>Delete cover</button>
+           </form>
+           <form method="post" action="cover/<%= single.audio %>?_method=DELETE">
+           <button>Delete audio</button>
+           </form>
+           <form method="post" action="delete/<%= single._id %>?_method=DELETE">
+           <button>Delete single</button>
+           </form>
+          <button><a href="/edit/<%= single.government %>">Edit release</a></button>
+    </div>
+    <script>
+    var two = document.querySelector(".caption");
+    console.log(<%= single.government %>)
+    var element = document.createElement("p")
+    element.innerText(<%= single.government %>)
+    two.append(element)
+</script>
+<% }); %>
+
+<%- include("footer") -%>

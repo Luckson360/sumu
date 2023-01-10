@@ -1,0 +1,22 @@
+<%- include("header") -%>
+/*
+have the most streamed and downloaded artists on top and the rest down there 
+.also have the each genre top artist filter too 
+*/
+<% artists.forEach(function(artist){ %>
+    <div class="col-md-3 col-sm-6">
+       <a href="<%= artist.artistName %>">
+       <p>
+       <%= artist.artistName %>
+       </p>
+       </a>
+       <a href="<%= artist.artistName %>">
+       <p>
+       Play
+       </p>
+       </a>
+       <button><a href="/artist/feature/<%= artist.government %>">Feature</button>
+       <button><a href="/artist/remove/feature/<%= artist.government %>">UnFeature</button>
+    </div>
+<% }); %>
+<%- include("footer") -%>

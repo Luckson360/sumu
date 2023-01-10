@@ -1,0 +1,83 @@
+.view-item{
+
+  margin: 0px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+
+}
+
+.one .view-item:last-child{
+  margin-bottom: 0;
+}
+
+img{
+  width: 250px;
+}
+
+.title{
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 25px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.content{
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding-top: 0px;
+}
+
+.view-item .vi-left{
+  margin-right: 25px;
+}
+
+.view-item .vi-right{
+  padding-bottom: 150px;
+  padding-top: 10px;
+  margin-right: 25px;
+}
+
+.view-item .content{
+  margin: 5px 0;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 600;
+  margin-top: 0px;
+}
+
+.view-item .btn{
+  width: 125px;
+  background-color: #4abd3e;
+  color: #fff;
+  border-radius: 3px;
+  padding: 8px;
+  text-align: center;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+@media (max-width: 768px){
+  .view-item{
+  flex-direction: column;
+}
+.artist img{
+  margin: 2.5rem;
+  align-items: center;
+}
+
+}
+
+@media (max-width: 393px){
+  .view-item{
+  flex-direction: column;
+}
+.artist img{
+  margin: 2.5rem;
+  align-items: center;
+}
+
+}
+
+

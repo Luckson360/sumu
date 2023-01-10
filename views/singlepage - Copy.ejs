@@ -1,0 +1,221 @@
+<%- include("header") -%>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<style>
+  nav{
+  font-weight: 700;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+  margin-bottom: 2rem;
+  position: fixed-top;
+  /*overflow-x: hidden;*/
+}
+  body{
+  margin: 0px;
+  padding: 0px;
+  background-color: #eef8ff;
+}
+  .view-item{
+
+  margin: 0px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+
+}
+
+.one .view-item:last-child{
+  margin-bottom: 0;
+}
+
+img{
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+}
+
+.title{
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  font-size: 25px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.content{
+  font-weight: 100;
+  letter-spacing: 0.5px;
+  padding-top: 0px;
+}
+
+.view-item .vi-left{
+  margin-right: 25px;
+}
+
+.view-item .vi-right{
+  padding-bottom: 115px;
+  padding-top: 10px;
+  margin-right: 25px;
+}
+
+.view-item .content{
+  margin: 5px 0;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 600;
+  margin-top: 0px;
+}
+
+.view-item .btn{
+  width: 125px;
+  background-color: #4abd3e;
+  color: #fff;
+  border-radius: 3px;
+  padding: 8px;
+  text-align: center;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+@media (max-width: 768px){
+  .view-item{
+  flex-direction: column;
+}
+.artist img{
+  margin: 2.5rem;
+  align-items: center;
+}
+
+}
+/*
+  The stlesheet for the list of the songs onthe Music page
+*/
+
+    .v-item{
+      border: 1px solid #e2ef12;
+      margin: 10px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      background: white;
+    }
+
+    .one .v-item:last-child{
+      margin-bottom: 0;
+    }
+
+    .img{
+      width: 75px;
+    }
+
+    .smalltitle{
+      font-weight: 600;
+      padding-bottom: 5;
+      margin-bottom: 0px;
+    }
+
+    .v-item .v-left{
+      margin-right: 25px;
+    }
+
+    .v-item .Content{
+      margin: 5px 0;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 200;
+    }
+
+    .v-item .btn{
+      width: 125px;
+      background-color: #4abd3e;
+      color: #fff;
+      border-radius: 3px;
+      padding: 8px;
+      text-align: center;
+      font-weight: 200;
+      cursor: pointer;
+    }
+
+@media (max-width: 768px){
+  .v-item{
+  flex-direction: column;
+}
+
+.img{
+      width: 8rem;
+      align-content: center;
+    }
+
+    .smallitle{
+      font-weight: 600;
+      padding-bottom: 0;
+      margin-bottom: 0px;
+      text-align: center;
+      margin-left: 0px;
+    }
+        .v-item .v-left{
+      margin-right: 0px;
+    }
+}
+</style>
+<div class="container">
+<% if(single){ %>
+  <div class="view-item">
+    <div class="vi-left">
+      <img src="/image/<%= single.coverArt %>">
+    </div>
+    <div class="vi-right">
+      <p class="title">
+        <%= single.singleTitle %>
+      </p>
+      <h5>
+        <%= single.artistName %>  
+      </h5>
+      <h6>
+        Hiphop/African Drums<b>.</b>2020 
+      </h6>
+      <h5>
+        <%= single.streams %> Streams <%= single.downloads %> Downloads
+      </h5>
+      <a class="btn btn-warning btn-sm" href="#" role="button" style="background-color: rgb(0, 2, 40); font-weight: 700;">Download</a>
+    </div>
+  </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Song Title</th>
+      <th scope="col">Artist(s)</th>
+      <th scope="col">Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td><%= single.singleTitle %></td>
+      <td><%= single.artistName %></td>
+      <td>@mdo</td>
+    </tr>
+  </tbody>
+</table>
+<div class="morefromartist">
+  <p>More from Artist</p>
+  <p>Albums</p>
+  <p>Singles</p>
+        <% othersingles.forEach(function(other){ %>
+    <div class="v-item">
+      <div class="v-left">
+        <a href="song/<%= other.singlename %>"><img src="/image/<%= other.coverArt %>" class="img"></a>
+      </div>
+      <div class="v-right">
+        <p class="smalltitle">
+          <%= other.singleTitle %>
+        </p>
+        <p class="content">
+          <%= other.artistName %>  
+        </p>
+      </div>
+    </div>
+    <% }); %>
+</div>
+</div>
+<% } %>

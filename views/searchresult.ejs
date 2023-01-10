@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/lightslider.css">
+    <link rel="stylesheet" href="flickity.min.css" media="screen">
+    <script src="/js/jquery.js" type="text/javascript"></script>
+    <script src="flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script src="/js/lightslider.js" type="text/javascript"></script>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="js/socet.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="songlist.css">
+    <title>SUMU</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light-blue navbar-fixed-top">
+<div class="container">
+  <a class="navbar-brand" href="/">SUMU</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Music <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/artists">Artists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/charts">Charts</a>
+      </li>
+    </ul>
+        <form class="form-inline my-2 my-lg-0" action="/text" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="that">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+</nav>
+<div class="container">
+  <div class="btn-singles-albums">
+    <a class="btn btn-primary btn-sm" href="/singles" role="button" style="background-color: #f15fa3; font-weight: 700;">Singles</a>
+<a class="btn btn-primary btn-sm" href="/albums" role="button" style="background-color: #f15fa3; font-weight: 700;">Albums</a>
+</div>
+<div class="f-music"><h4>Albums</h4></div>
+</div>
+<br>
+    <!-- the featured music cards grid -->
+    <!-- the featured music cards grid -->
+
+    <div class="container">
+      <!-- Featured Albums slider -->
+      <section class="slider">
+      <ul id="autoWidth" class="cS-hidden">
+        <% results.forEach(function(result){ %>
+        <li class="item-1">
+          <div class="Box">
+        <!-- img box -->
+        <div class="slide-image">
+          <img src="image/<%= result.coverArt %>">
+          <!-- overlayer-->
+          <div class="overlay">
+            <!-- Buy btn -->
+            <a href="/album/<%= result.government %>" class="buy-btn">Stream</a>
+          </div>
+        </div>
+        <!-- detail box -->
+        <div class="detail-box">
+          <!-- type -->
+          <div class="type">
+            <a href="/album/<%= result.government %>"> <%= result.singleTitle %> </a>
+            <span> <%= result.artists %> </span>
+            <!-- Price -->
+          </div>
+        </div>
+        </li>
+        <% }) %>
+      </ul>
+      
+    </section>
+
+    <break>
+      <br>
+      <div class="f-music"><h4>Singles</h4></div>
+      <div class="container">
+      <% results.forEach(function(result){ %>
+        <div class="view-item">
+      <div class="vi-left">
+        <a href="/album/<%= result.government %>"><img style="width: 5rem; height: 5rem;  object-fit: cover;
+  box-sizing: border-box;" src="/image/<%= result.coverArt %>"></a>
+      </div>
+      <div class="vi-right">
+        <p class="title">
+          <%= result.singleTitle %>
+        </p>
+        <p class="content">
+          <%= result.artists %>  
+        </p>
+         <span class="badge badge-primary badge-pill bg-success"><%= result.streams %> Streams</span>
+          <span class="badge badge-primary badge-pill bg-danger"><%= result.downloads%> Downloads</span>
+           <span class="badge badge-primary badge-pill bg-warning"><a href="/downloads/<%= result.audio%>" download>Download</a></span>
+      </div>
+    </div>
+
+      <% }) %>
+    </div>
+<br>
+    <break>
+      <br>
+</div>
+<br>
+      <!-- the list now -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/script.js" type="text/javascript">
+    </script>
+    <script src="js/fsdr.js" type="text/javascript"></script>
+    <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+  </body>
+</html>

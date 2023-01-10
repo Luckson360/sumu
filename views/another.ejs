@@ -1,0 +1,110 @@
+//have the goverrnment box to be a random words and numbers generator 
+fo show
+//have that automatically show up on the form at the bottom when its time 
+to upload the audio wave 
+//have the list of all artists on the site , so one can just selct a
+and proceed or just search the artists = for the already added artists 
+so there is no form so there are no errors here 
+<form action="/addGenre" method="post">
+	<p> Add new Genre </p>
+	<input type="text" name="genreName" value="">
+</form>
+
+<form action="/text" method="get">
+	<p> Add new Genre </p>
+	<input type="search" name="that" value="">
+
+</form>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+	<p> For Artist already registered </p>
+	<p> Artist Name </p>
+	<select name="artistName">
+	<% artists.forEach(function(artist){ %>
+		<option value="<%= artist.artistName%>"><p><%= artist.artistName%></p></option>
+	<% }) %>
+	</select>
+	<label for="fileone">Release Type</label>
+	<input type="text" name="albumTitle" value="single">
+	<p> Single Title </p>
+	<input type="text" name="singleTitle" value="">
+	<p> Genre </p>
+	<select name="genreName">
+	<% genres.forEach(function(genre){ %>
+		<option value="<%= genre.genreName%>"><p><%= genre.genreName%></p></option>
+	<% }) %>
+	</select>
+	<p> Featured Artists </p>
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<p> Government </p>
+	<input type="text" name="government" value="">
+	<br/>
+	<br/>
+	<label for="fileone">Release Date</label>
+	<input type="date" name="releaseDate" value="">
+	<br/>
+	<br/>
+	<label for="fileone"> Upload Single Cover</label>
+  <br/>
+  <br/>
+  <input type="file" name="file" id="fileone">
+	<input type="submit" name="submit" value="Upload cover and Details">
+</form>
+
+<form action="/upload/new" method="post" enctype="multipart/form-data">
+	<p>For new Artist</p>
+	<p> Artist Name </p>
+	<input type="text" name="artistName" value="">
+	<label for="fileone">Release Type</label>
+	<input type="text" name="albumTitle" value="single">
+	<p> Single Title </p>
+	<input type="text" name="singleTitle" value="">
+	<p> Genre </p>
+	<select name="genreName">
+	<% genres.forEach(function(genre){ %>
+		<option value="<%= genre.genreName%>"><p><%= genre.genreName%></p></option>
+	<% }) %>
+	</select>
+	<p> Featured Artists </p>
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<input type="text" name="featuredArtist" value="">
+	<label for="fileone">Release Type</label>
+	<input type="text" name="releaseType" value="single">
+
+	<p> Single Title </p>
+	<input type="text" name="singleTitle" value="">
+	<p> Government </p>
+	<input type="text" name="government" value="">
+	<br/>
+	<label for="fileone">Release Date</label>
+	<input type="date" name="releaseDate" value="">
+	<br/>
+	<br/>
+	<label for="fileone">upload and image or audio</label>
+  	<br/>
+  	<input type="file" name="file5" id="fileone">
+	<input type="submit" name="submit" value="upload cover">
+</form>
+
+<form action="/uploadwave" method="post" enctype="multipart/form-data">
+	<p> The audio </p>
+	<p> Government </p>
+	<input type="text" name="government" value=government>
+	<input type="text" name="singleTitle" value="">
+	  <label for="fileone">upload the audio below</label>
+  <br/>
+  <input type="file" name="file2" id="fileone">
+	<input type="submit" name="submit" value="upload audio">
+</form>
+

@@ -1,0 +1,44 @@
+<%- include("header") -%>
+<a href='/music/add'><p>Upload Single</p></a>
+<a href='/rall'><p>Upload Album</p></a>
+<a href='/albums'><p>Albums</p></a>
+<a href='/artists'><p>Artists</p></a>
+<h4>Top Singles</h4>
+<p>Search</p>
+<form action="/search" method="get">
+<input type="search" name="search" placeholder="Artists,CDs,Albums">
+</form>
+<h4>CDs</h4>
+<% singles.forEach(function(single){ %>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+        <br/>
+           <a href="song/<%= single.singlename %>"><img src="image/<%= single.coverArt %>" width="200" height="200"></a>
+           <div class="caption">
+               <h4><%= single.singleTitle %></h4>
+           </div>
+           <p>
+           <%= single.artistName %>
+           </p>
+    </div>
+<% }); %>
+<h4>Albums</h4>
+<% albums.forEach(function(album){ %>
+<% if(albums.length > 0){ %>
+    <div class="col-md-3 col-sm-6">
+        <div class="thumbnail">
+        <br/>
+           <a href="albumpage/<%= album.albumname %>"><img src="image/<%= album.coverArt %>" width="200" height="200"></a>
+           <div class="caption">
+               <h4><%= album.albumTitle %></h4>
+           </div>
+           <p>
+           <%= album.albumArtist %>
+           </p>
+    </div>
+<% }else{ %>
+    <p>No Albums for <%= album.albumArtist %></p>
+<% } %>
+<% }); %>
+
+<%- include("footer") -%>

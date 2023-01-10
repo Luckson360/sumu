@@ -1,0 +1,18 @@
+<div>
+	<a href='/music/add'><p>the ones that dont really do it</p></a>
+  <% if(files){ %>
+<% files.forEach(function(file){ %>
+  <% if(file.isImage){ %>
+  <img src="image/<%= file.filename %>" alt="" width="200" height="200">
+  <p>smokewiely</p>
+  <br/>
+  <br/>
+  <% } else { %>
+  
+  <% } %>
+<% }) %>
+<% } else { %>
+<p> no files to show </p>
+<% } %>
+
+</div>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" href="/css/lightslider.css">
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/lightslider.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/slider.css">
+    <link rel="stylesheet" href="/songlist.css">
+    <title>SUMU</title>
+  </head>
+  <style type="text/css">
+    img{
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+  </style>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light-blue navbar-fixed-top">
+<div class="container">
+  <a class="navbar-brand" href="/">SUMU</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Music <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/artists">Artists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/charts">Charts</a>
+      </li>
+    </ul>
+        <form class="form-inline my-2 my-lg-0" action="/text" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="that">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+</nav>
+<div class="container">
+  <div class="btn-singles-albums">
+    <a class="btn btn-primary btn-sm" href="/singles" role="button" style="background-color: #f15fa3; font-weight: 700;">Singles</a>
+<a class="btn btn-primary btn-sm" href="/albums" role="button" style="background-color: #f15fa3; font-weight: 700;">Albums</a>
+</div>
+<div class="f-music"><h4>Featured Albums</h4></div>
+</div>
+<br>
+    <!-- the featured music cards grid -->
+    <!-- the featured music cards grid -->
+
+    <div class="container">
+      <!-- Featured Albums slider -->
+      <section class="slider">
+      <ul id="autoWidth" class="cS-hidden">
+        <% featuredAlbums.forEach(function(featuredAlbum){ %>
+        <li class="item-1">
+          <div class="Box">
+        <!-- img box -->
+        <div class="slide-image">
+          <img src="image/<%= featuredAlbum.coverArt %>" style="width: 5rem; height: 5rem;  object-fit: cover;
+  box-sizing: border-box;">
+          <!-- overlayer-->
+          <div class="overlay">
+            <!-- Buy btn -->
+            <a href="/album/<%= featuredAlbum.government %>" class="buy-btn">Stream</a>
+          </div>
+        </div>
+        <!-- detail box -->
+        <div class="detail-box">
+          <!-- type -->
+          <div class="type">
+            <a href="#"> <%= featuredAlbum.albumTitle %> </a>
+            <span> <%= featuredAlbum.artists %> </span>
+            <!-- Price -->
+          </div>
+        </div>
+        </li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <break>
+      <br>
+      <!-- the list now -->
+      <!-- the list now -->
+      <!-- the list now -->
+      <div class="f-music"><h4>Albums</h4></div>
+      <div class="container">
+      <% albums.forEach(function(album){ %>
+    <div class="view-item">
+      <div class="vi-left">
+        <a href="/album/<%= album.government %>"><img src="image/<%= album.coverArt %>"></a>
+      </div>
+      <div class="vi-right">
+        <p class="title">
+          <%= album.albumTitle %>
+        </p>
+        <p class="content">
+          <%= album.artists %>  
+        </p>
+      </div>
+    </div>
+    <% }); %>
+    </div>
+  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/script.js" type="text/javascript">
+    </script>
+    <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+  </body>
+</html>

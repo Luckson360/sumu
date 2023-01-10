@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" href="/css/lightslider.css">
+    <script src="/js/jquery.js" type="text/javascript"></script>
+    <script src="/js/lightslider.js" type="text/javascript"></script>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="songlist.css">
+    <title>Sahara</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light-blue navbar-fixed-top">
+<div class="container">
+  <a class="navbar-brand" href="/">Sahara</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Music <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/artists">Artists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/charts">Charts</a>
+      </li>
+    </ul>
+        <form class="form-inline my-2 my-lg-0" action="/text" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="that">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+</nav>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/script.js" type="text/javascript">
+    </script>
+    <script src="bootstrap.min.js" type="text/javascript"></script>
+  </body>
+</html>
