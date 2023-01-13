@@ -55,7 +55,7 @@
            </div>
 
            <div class="slider_container">
-               <i class="fa fa-volume-down"></i>
+               <img src="/volume.png">
                 <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
                 <i class="fa fa-volume-up"></i>
            </div>
@@ -67,20 +67,21 @@
             </ul> 
            <div class="buttons">
                <div class="random-track" onclick="randomTrack()">
-                    
+                    <img src="/shuffle.PNG">
                </div>
                <div class="prev-track" onclick="prevTrack()">
-                    <span class="badge badge-primary badge-pill">Prev</span>
+                    <!--<span class="badge badge-primary badge-pill">Prev</span>-->
+                    <img src="/angle-left.png">
                 </div>
                 <div class="playpause-track" onclick="playpauseTrack()">
-                    <span class="badge badge-primary badge-pill">Play/Pause</span>
+                    <img src="/play.png">
                 </div>
                 <div class="next-track" onclick="nextTrack()">
-                    <span class="badge badge-primary badge-pill">Next</span>
+                    <img src="/angle-right.png">
                 </div>
                 <!-- will have  download btn below ,no repeat btn -->
                 <div class="repeat-track" onclick="repeatTrack()">
-                    
+                    <img src="/refresh.png">
                 </div>
            </div>
 
@@ -102,9 +103,9 @@
     <% albumtracks.forEach(function(albumtrack){ %> 
   <li class="list-group-item d-flex justify-content-between align-items-center">
     <%= albumtrack.singleTitle %>
-    <span class="badge badge-primary badge-pill"><%= albumtrack.releaseDate %></span>
+    <span class="badge badge-primary badge-pill"><%= albumtrack.releaseDate.getFullYear() %></span>
     <span class="badge badge-primary badge-pill"><%= albumtrack.downloads %> Downloads</span>
-      <span class="badge badge-primary badge-pill bg-warning"><a href="/downloads/<%= albumtrack.audio%>" download>Download</a></span>
+    <a href="/downloads/<%= albumtrack.audio%>" download><img src="/download.png"></a>
   </li>
     <%})%>
 </ul>
